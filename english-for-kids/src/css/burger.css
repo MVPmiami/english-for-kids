@@ -1,0 +1,114 @@
+.burger {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.burger input {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0; /* hide input */
+  z-index: 1; /* top of the menu */
+}
+
+.burger span{
+  width: 55px;
+  height: 8px;
+  margin-bottom: 10px;
+  background-color: #0c2461;
+  border-radius: 4px;
+  -webkit-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+  -moz-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+  -ms-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+  -o-transition: all .5s cubic-bezier(.08,.81,.87,.71);
+  transition: all .5s cubic-bezier(.08,.81,.87,.71);
+}
+
+#span1 {
+  transform-origin: 4px 0px;
+}
+
+#span3 {
+  transform-origin: bottom right;
+}
+
+.burger input:checked ~ #span1 {
+  background: #6b7d97;
+  transform: rotate(45deg) translate(8px);
+}
+.burger input:checked ~ #span2 {
+  background: #6b7d97;
+  transform: rotate(495deg) translate(4px);   
+}
+.burger input:checked ~ #span3 {
+  background: #6b7d97;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+.navigation-list{
+  position: absolute;
+  z-index: 10;
+  width: 400px;
+  height: 100%;
+  top: 0px;
+  left: -400px;
+  background: rgb(41,42,124);
+  background: linear-gradient(27deg, rgba(41,42,124,1) 0%, rgba(199,200,143,1) 52%); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation-list ul {
+  list-style: none;
+  padding: 0;
+  width: 50%;
+}
+
+@keyframes navigation-list-to-right{
+  from{
+    left: -400px;
+  }
+  to{
+    left: 0px;
+  }
+}
+
+.navigation-list-to-right{
+  animation: navigation-list-to-right 1s;
+}
+
+@keyframes navigation-list-to-left{
+  from{
+    left: 0px;
+  }
+  to{
+    left: -400px;
+  }
+}
+
+.navigation-list-to-left{
+  animation: navigation-list-to-left 1s;
+}
+
+.navigation-list ul li{
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.navigation-list ul li:first-child{
+  border-bottom: 3px solid black;
+}
+
+.navigation-list ul li:hover {
+  cursor: pointer;
+  color: white;;
+}

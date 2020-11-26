@@ -1,1 +1,3 @@
-console.log('lol')
+import {burger} from './burger.js';
+
+burger();
