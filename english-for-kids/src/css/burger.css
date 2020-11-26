@@ -67,6 +67,11 @@
   align-items: center;
 }
 
+.navigation-list-play{
+  background: rgb(41,42,124);
+  background: linear-gradient(27deg, rgba(41,42,124,1) 0%, rgba(218,124,130,1) 88%);
+}
+
 .navigation-list ul {
   list-style: none;
   padding: 0;

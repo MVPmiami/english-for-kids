@@ -1,4 +1,6 @@
 @import "burger.css";
+@import "switcher.css";
+
 * {
   box-sizing: border-box;
 }
