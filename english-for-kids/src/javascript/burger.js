@@ -2,7 +2,6 @@ function burger() {
   const burgerBtn = document.querySelector('.burger');
   const navigation = document.querySelector('.navigation-list');
   let isActive = true;
-  console.log(navigation);
   burgerBtn.addEventListener('click', () => {
     if(isActive){
       navigation.classList.remove('navigation-list-to-left');
