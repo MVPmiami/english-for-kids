@@ -1,0 +1,7 @@
+.navigation-list ul li:first-child {
+  border-bottom: none;
+}
+
+.current-iten-of-navigation-list {
+  border-bottom: 3px solid black;
+}
