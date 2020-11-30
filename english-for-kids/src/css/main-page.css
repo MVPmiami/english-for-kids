@@ -64,7 +64,7 @@ body{
   width: 100%;
 }
 
-.card {
+.card , .card-translate, .card-no-translate{
   display: flex;
   flex-flow: column;
   justify-content: space-between;
@@ -78,12 +78,36 @@ body{
   position: relative;
   font-size: 28px;
   box-shadow: 0px 0px 10px 4px rgba(70, 80, 34, 0.4);
+  backface-visibility: hidden;
+  transition: 1s;
+  perspective: 1000px;
 }
 
+.card-translate{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: rotateY(180deg);
+}
+
+.card-no-translate{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.reverse-card-to-translate{
+  transform: rotateY(180deg);
+}
+
+.reverse-card-to-no-translate{
+  transform: rotateY(360deg);
+}
+/*
 .card:hover{
   cursor: pointer;
   box-shadow: 0px 0px 10px 4px rgba(34, 60, 80, 0.8);
-}
+}*/
 
 img {
   width: 200px;
@@ -107,7 +131,7 @@ img {
   background: linear-gradient(27deg, rgba(41,42,124,1) 0%, rgba(218,124,130,1) 88%); 
 }
 
-.btn-note{
+.translate-btn{
   position: absolute;
   width: 50px;
   height: 40px;
@@ -116,4 +140,8 @@ img {
   background-repeat: no-repeat;
   bottom: 15px;
   right: 15px;
+}
+
+.hidden-item{
+  display: none;
 }

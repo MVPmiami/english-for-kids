@@ -109,7 +109,7 @@
   margin-bottom: 20px;
 }
 
-.navigation-list ul li:first-child{
+.underline{
   border-bottom: 3px solid black;
 }
 
