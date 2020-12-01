@@ -39,7 +39,7 @@
   transform-origin: bottom right;
 }
 
-.burger input:checked ~ #span1 {
+/*.burger input:checked ~ #span1 {
   background: #6b7d97;
   transform: rotate(45deg) translate(8px);
 }
@@ -51,6 +51,15 @@
   background: #6b7d97;
   transform: rotate(45deg);
   opacity: 0;
+}*/
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 9;
 }
 
 .navigation-list{
@@ -65,6 +74,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+ 
 }
 
 .navigation-list-play{
@@ -88,7 +98,7 @@
 }
 
 .navigation-list-to-right{
-  animation: navigation-list-to-right 1s;
+  animation: navigation-list-to-right 0.3s;
 }
 
 @keyframes navigation-list-to-left{
@@ -101,7 +111,7 @@
 }
 
 .navigation-list-to-left{
-  animation: navigation-list-to-left 1s;
+  animation: navigation-list-to-left 0.3s;
 }
 
 .navigation-list ul li{

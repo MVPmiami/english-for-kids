@@ -73,3 +73,13 @@ label:after {
     left: 50px;
   }
 }
+
+.card-play-img {
+  width: 320px;
+  height: 215px;
+  position: unset;
+  top: none;
+  left: none;
+  border-radius: unset;
+  border: unset;
+}

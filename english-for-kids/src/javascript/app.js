@@ -12,7 +12,7 @@ const navigation = document.querySelector('.navigation-list');
 const mainPageLink = document.querySelector('.main-page-link');
 
 
-//Burger 
+//Burger
 
 burger();
 
@@ -79,4 +79,8 @@ window.addEventListener('popstate', function () {
 });
 
 // Translate Button
+
+export {currentItemStr};
+export {isNewPage};
+
 

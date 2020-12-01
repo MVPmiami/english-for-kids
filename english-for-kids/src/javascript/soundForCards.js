@@ -1,6 +1,6 @@
 function playSoundOfCards (currentItem, card){
   let currentCard = document.querySelector(`.${currentItem}`);
-  //console.log(currentCard);
+
   currentCard = currentCard.children[1].textContent;
   let pathOfSound;
   let soundOfCurrentCard;
@@ -12,14 +12,14 @@ function playSoundOfCards (currentItem, card){
       continue;
     }
   }
-
-  if(true){
     soundOfCurrentCard = new Audio();
     soundOfCurrentCard.src = pathOfSound;
     soundOfCurrentCard.autoplay = true;
-  }else{
-    return;
-  }
+    console.log(soundOfCurrentCard);
 }
 
+function stopAudio(soundOfCurrentCard){
+  soundOfCurrentCard.src = '';
+  soundOfCurrentCard.autoplay = false;
+}
 export {playSoundOfCards};

@@ -4,7 +4,9 @@ import {playSoundOfCards} from './soundForCards.js';
 function generatorCard (currentCard, card, isNewPage) {
   isNewPage = true;
   const mainContainer = document.querySelector('.main-container');
-  mainContainer.innerHTML = '';
+  while(mainContainer.firstChild){
+    mainContainer.removeChild(mainContainer.firstChild);
+  }
   const mainPageLink = document.querySelector('.main-page-link');
   mainPageLink.classList.remove('underline');
   const navigationList = document.querySelectorAll('li');
@@ -45,6 +47,7 @@ function generatorCard (currentCard, card, isNewPage) {
 
     item.classList.add('card');
     item.classList.add(`card${i+1}`);
+    item.classList.add(`${currentCardStr.substring(1,currentCardStr.length)}`);
     itemNoTranslate.classList.add('card-no-translate')
     itemStatus.classList.add('card-status-color');
     itemImage.setAttribute('src', pathOfImage);
