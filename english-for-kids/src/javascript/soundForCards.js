@@ -18,8 +18,4 @@ function playSoundOfCards (currentItem, card){
     console.log(soundOfCurrentCard);
 }
 
-function stopAudio(soundOfCurrentCard){
-  soundOfCurrentCard.src = '';
-  soundOfCurrentCard.autoplay = false;
-}
 export {playSoundOfCards};

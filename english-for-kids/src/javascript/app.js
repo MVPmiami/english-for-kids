@@ -18,9 +18,13 @@ burger();
 
 //Switcher
 
-switcherBtn.addEventListener('click', () => {
+switcherBtn.addEventListener('click', swicthBtn);
+
+function swicthBtn () {
   switchStatus();
-});
+  switcherBtn.removeEventListener('click',swicthBtn);
+  switcherBtn.addEventListener('click',swicthBtn);
+}
 
 // Selecting the current card
 let currentItemStr;

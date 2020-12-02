@@ -84,4 +84,7 @@ function generatorCard (currentCard, card, isNewPage) {
     }
 });
 }
+
+
+
 export {generatorCard};

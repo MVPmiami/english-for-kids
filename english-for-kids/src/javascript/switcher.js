@@ -33,6 +33,7 @@ function transformCards(isTrain) {
 
     navigation.classList.add('navigation-list-play');
     generatePlayCards(currentItem, cards);
+    generatePlayBtn();
 
   }else {
     navigation.classList.remove('navigation-list-play');
@@ -61,8 +62,8 @@ function generatePlayCards(currentCard, card) {
     }
   }
 
-  console.log(currentCard)
-  console.log(cards)
+ // console.log(currentCard)
+ // console.log(cards)
 
   for(let i = 0; i < 8; i++){
     let itemNoTranslate = document.createElement('div');
@@ -86,5 +87,16 @@ function generatePlayCards(currentCard, card) {
     itemNoTranslate.appendChild(itemImage);
   }
 }
+
+function generatePlayBtn () {
+  const appContainer = document.querySelector('.app-container');
+
+  let playBtn = document.createElement('div');
+  playBtn.classList.add('play-button');
+  playBtn.innerText = 'Start game';
+
+  appContainer.appendChild(playBtn);
+}
+
 
 export {switchStatus};
