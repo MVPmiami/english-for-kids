@@ -1,21 +1,25 @@
 import {currentItemStr} from './app.js';
 import cards from './cards.js';
 import {generatorCard} from './generatorCard.js';
-import {isNewPage} from './app.js';;
+import {isNewPage} from './app.js';
+
 
 let isTrain = true;
 
 function switchStatus() {
   const switcherBtn = document.querySelector('.switch-button');
-  console.log(isTrain)
+
   if(isTrain){
     switcherBtn.addEventListener('click', () => {
       transformCards(isTrain);
+      generatePlayBtn();
       isTrain = false;
   });
   }else{
     switcherBtn.addEventListener('click', () => {
       transformCards(isTrain);
+      removePlayBtn();
+      removeTableOfScore();
       isTrain = true;
   });
   }
@@ -33,13 +37,11 @@ function transformCards(isTrain) {
 
     navigation.classList.add('navigation-list-play');
     generatePlayCards(currentItem, cards);
-    generatePlayBtn();
 
   }else {
     navigation.classList.remove('navigation-list-play');
 
     let currentItem = document.querySelector('.card').classList[2];
-
     for(let i = 0 ; i < 8; i++ ){
       if(cards[0][i] === currentItem){
       generatorCard(currentItem, cards[i + 1], isNewPage);
@@ -88,15 +90,55 @@ function generatePlayCards(currentCard, card) {
   }
 }
 
-function generatePlayBtn () {
-  const appContainer = document.querySelector('.app-container');
-
-  let playBtn = document.createElement('div');
-  playBtn.classList.add('play-button');
-  playBtn.innerText = 'Start game';
-
-  appContainer.appendChild(playBtn);
+function generatePlayBtn() {
+  let playBtn = document.querySelector('.play-button');
+  playBtn.classList.remove('hidden-item');
 }
 
+function removePlayBtn() {
+  let playBtn = document.querySelector('.play-button');
+  playBtn.classList.add('hidden-item');
+}
+
+function removeTableOfScore(){
+  let tableOfScore = document.querySelector('.table-of-score');
+  while(tableOfScore.firstChild){
+    tableOfScore.removeChild(tableOfScore.firstChild);
+  }
+  tableOfScore.classList.add('hidden-item');
+}
+
+function generatorMainPagePlayMode (cards) {
+console.log(cards)
+  const mainContainer = document.querySelector('.main-container');
+  mainContainer.innerHTML = '';
+  
+  for(let i = 0; i < 8; i++){
+    let item = document.createElement('div');
+    let itemStatus = document.createElement('div');
+    let itemImage = document.createElement('img');
+    let textOfCard = document.createElement('p');
+    let buttonForNote = document.createElement('div');
+    let pathOfImage = cards[0][9][i];
+    let pathOFText = cards[0][8][i];
+
+    item.classList.add(cards[0][i]);
+    itemStatus.classList.add(cards[0][i]);
+    itemImage.classList.add(cards[0][i]);
+    item.classList.add('card');
+    itemImage.setAttribute('src', pathOfImage);
+    itemStatus.classList.add('card-status-color');
+    itemStatus.classList.add('card-status-color-play');
+    textOfCard.innerText = pathOFText;
+    buttonForNote.classList.add('translate-btn');
+    buttonForNote.classList.add('hidden-item')
+
+    mainContainer.appendChild(item);
+    item.appendChild(itemStatus);
+    item.appendChild(itemImage);
+    item.appendChild(textOfCard);
+    item.appendChild(buttonForNote);
+  }
+}
 
 export {switchStatus};

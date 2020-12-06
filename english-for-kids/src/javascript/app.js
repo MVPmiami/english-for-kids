@@ -4,6 +4,7 @@ import cards from './cards.js';
 import {generatorCard} from './generatorCard.js';
 import {generatorMainPage} from './generatorMainPage.js';
 import {translateCard} from './translateButton.js';
+import {startGame} from './startGame.js'
 const switcherBtn = document.querySelector('.switch-button');
 let currentCard;
 let isNewPage = false;
@@ -18,26 +19,28 @@ burger();
 
 //Switcher
 
-switcherBtn.addEventListener('click', swicthBtn);
-
-function swicthBtn () {
+switcherBtn.addEventListener('click', () => {
   switchStatus();
-  switcherBtn.removeEventListener('click',swicthBtn);
-  switcherBtn.addEventListener('click',swicthBtn);
-}
+});
 
 // Selecting the current card
 let currentItemStr;
+let currentItems = [];
 function currentCards(e){
   currentItemStr = e.target.classList[0];
   currentItemStr = '.' + currentItemStr;
   currentCard = document.querySelector(currentItemStr);
   currentItemStr = currentCard.classList[0];
-  return currentItemStr;
+  currentItems.push(currentItemStr);
+  if(currentItems[currentItems.length - 1] === 'translate-btn'){
+    currentItems = currentItems.slice(0, currentItems.length - 1);
+  }
+  return currentItemStr, currentItems;
 }
 
 mainContainer.addEventListener('click', (e) => {
   currentCards(e);
+  console.log(currentItems)
   for(let i = 0; i < cards[0].length; i++){
     if(isNewPage){
       return;
@@ -53,7 +56,7 @@ navigation.addEventListener('click', (e) => {
   currentCards(e);
   //console.log(currentItemStr);
   if(e.target.textContent === 'Main Page'){
-    generatorMainPage(currentCard,cards, isNewPage);
+    generatorMainPage(currentCard,cards, isNewPage, currentItems);
   }else{
     for(let i = 0; i < cards[0].length; i++){
       if(!isNewPage){
@@ -82,9 +85,16 @@ window.addEventListener('popstate', function () {
     history.pushState(null, null, document.URL);
 });
 
-// Translate Button
+// start game
+let playBtn = document.querySelector('.play-button');
+playBtn.addEventListener('click', () => {
+  startGame(cards, currentItemStr, currentItems)
+});
+
 
 export {currentItemStr};
 export {isNewPage};
+export {currentCard};
+
 
 

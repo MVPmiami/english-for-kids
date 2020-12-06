@@ -1,11 +1,20 @@
 function generatorMainPage (currentCard, card, isNewPage) {
-  console.log(currentCard)
+  console.log('work')
   isNewPage = false;
   const mainContainer = document.querySelector('.main-container');
   const mainPageLink = document.querySelector('.main-page-link');
   mainPageLink.classList.add('underline');
   mainContainer.innerHTML = '';
   const navigationList = document.querySelectorAll('li');
+  let switcherBtn = document.querySelector('.switcher');
+  let tableOfScore = document.querySelector('.table-of-score');
+  while(tableOfScore.firstChild){
+    tableOfScore.removeChild(tableOfScore.firstChild);
+  }
+  tableOfScore.classList.add('hidden-item');
+  switcherBtn.classList.add('hidden-item');
+  let playBtn = document.querySelector('.play-button');
+  playBtn.classList.add('hidden-item');
 
   for(let i = 0 ; i < navigationList.length; i++){
     if(navigationList[i] === currentCard){
@@ -40,6 +49,10 @@ function generatorMainPage (currentCard, card, isNewPage) {
     item.appendChild(textOfCard);
     item.appendChild(buttonForNote);
   }
+  history.go(0);
 }
 
+
+
 export {generatorMainPage};
+

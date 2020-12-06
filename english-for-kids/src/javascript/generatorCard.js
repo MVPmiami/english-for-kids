@@ -10,6 +10,8 @@ function generatorCard (currentCard, card, isNewPage) {
   const mainPageLink = document.querySelector('.main-page-link');
   mainPageLink.classList.remove('underline');
   const navigationList = document.querySelectorAll('li');
+  let switcherBtn = document.querySelector('.switcher');
+  switcherBtn.classList.remove('hidden-item');
 
   for(let i = 0 ; i < navigationList.length; i++){
     if(navigationList[i] === currentCard){
@@ -69,7 +71,8 @@ function generatorCard (currentCard, card, isNewPage) {
   const buttonsForNote = document.querySelectorAll('.translate-btn');
   const cardfordeleateStyle = document.querySelectorAll('.card');
   //console.log(buttonsForNote)
-  mainContainer.addEventListener('click', (e) => {
+  mainContainer.addEventListener('click', test);
+  function test (e) {
     let currentItem = e.target.parentNode.parentNode.classList[1];
     //console.log(e.target.children[3].classList[0])
     if(e.target.classList[0] === 'translate-btn'){
@@ -82,7 +85,9 @@ function generatorCard (currentCard, card, isNewPage) {
     }else{
       return;
     }
-});
+    mainContainer.removeEventListener('click', test);
+    mainContainer.addEventListener('click', test);
+  }
 }
 
 

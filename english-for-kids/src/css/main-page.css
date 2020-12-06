@@ -144,5 +144,48 @@ img {
 }
 
 .hidden-item{
-  display: none;
+  visibility: hidden;
+}
+
+.table-of-score {
+  display:flex;
+  height: 50%;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.score-point{
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/star-correct.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.score-point-uncorrect{
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/star-uncorrect.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.corect-item {
+  opacity: 0.4;
+}
+
+.victory-image {
+  width: 800px;
+  height: 800px;
+  background-image: url(../img/ura.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.lose-image{
+  width: 800px;
+  height: 800px;
+  background-image: url(../img/failure.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
