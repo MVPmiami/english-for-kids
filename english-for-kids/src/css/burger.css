@@ -39,7 +39,7 @@
   transform-origin: bottom right;
 }
 
-/*.burger input:checked ~ #span1 {
+.burger input:checked ~ #span1 {
   background: #6b7d97;
   transform: rotate(45deg) translate(8px);
 }
@@ -51,7 +51,7 @@
   background: #6b7d97;
   transform: rotate(45deg);
   opacity: 0;
-}*/
+}
 
 .overlay {
   width: 100%;

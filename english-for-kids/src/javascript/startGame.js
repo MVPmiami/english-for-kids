@@ -51,6 +51,7 @@ function startGame(cards, currentItemStr, currentItems) {
   generateRepeatBtn();
 
   function repeatSound() {
+    console.log(currentSoundsArray);
     if(currentSoundsArray.length === 1){
       let playitem = new Audio();
       playitem.src = soundsCardsArr[soundsCardsArr.length - 1];
