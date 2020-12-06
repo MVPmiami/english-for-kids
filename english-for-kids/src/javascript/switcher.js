@@ -98,6 +98,8 @@ function generatePlayBtn() {
 function removePlayBtn() {
   let playBtn = document.querySelector('.play-button');
   playBtn.classList.add('hidden-item');
+  let repeatBtn = document.querySelector('.repeat-button');
+  repeatBtn.classList.add('hidden-item')
 }
 
 function removeTableOfScore(){

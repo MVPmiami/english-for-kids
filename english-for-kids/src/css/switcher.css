@@ -87,7 +87,7 @@ label:after {
 .play-button {
   cursor: pointer;
   width: 600px;
-  height: 70px;
+  min-height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;

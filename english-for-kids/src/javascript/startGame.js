@@ -47,7 +47,50 @@ function startGame(cards, currentItemStr, currentItems) {
   let card1 = document.querySelector('.card1');
   let mainContainer = document.querySelector('.main-container');
   let countMistakes = 0;
-  mainContainer.addEventListener('click', checkMistakes8) 
+  let currentSoundsArray = [];
+  generateRepeatBtn();
+
+  function repeatSound() {
+    if(currentSoundsArray.length === 1){
+      let playitem = new Audio();
+      playitem.src = soundsCardsArr[soundsCardsArr.length - 1];
+      playitem.autoplay = true;
+    }else if(currentSoundsArray.length === 2){
+      let playitem = new Audio();
+      playitem.src = soundsCardsArr[soundsCardsArr.length - 3];
+      playitem.autoplay = true;
+    }else if(currentSoundsArray.length === 3){
+      let playitem = new Audio();
+      playitem.src = soundsCardsArr[soundsCardsArr.length - 5];
+      playitem.autoplay = true;
+    }else if(currentSoundsArray.length === 4){
+      let playitem = new Audio();
+      playitem.src = soundsCardsArr[soundsCardsArr.length - 7];
+      playitem.autoplay = true;
+    }else if(currentSoundsArray.length === 5){
+      let playitem = new Audio();
+      playitem.src = soundsCardsArr[soundsCardsArr.length - 4];
+      playitem.autoplay = true;
+    }else if(currentSoundsArray.length === 6){
+      let playitem = new Audio();
+      playitem.src = soundsCardsArr[soundsCardsArr.length - 6];
+      playitem.autoplay = true;
+    }else if(currentSoundsArray.length === 7){
+      let playitem = new Audio();
+      playitem.src = soundsCardsArr[soundsCardsArr.length - 8];
+      playitem.autoplay = true;
+    }else{
+      let playitem = new Audio();
+      playitem.src = soundsCardsArr[soundsCardsArr.length - 2];
+      playitem.autoplay = true;
+    }
+  }
+
+  let repeatBtn = document.querySelector('.repeat-button');
+  repeatBtn.addEventListener('click', repeatSound);
+
+  mainContainer.addEventListener('click', checkMistakes8)
+  currentSoundsArray.push('+');
   function checkMistakes8(e) {
     let currentItem = e.target.parentNode.parentNode;
     if(currentItem.classList[1] !== 'card8'){
@@ -107,6 +150,7 @@ function startGame(cards, currentItemStr, currentItems) {
   card8.addEventListener('click', check8);
   function check8(e) {
     let checkCard = e.target.parentNode.parentNode;
+
     if(checkCard.classList[1] === 'card8'){
       correct(tableOfscore);
       checkCard.classList.add('corect-item');
@@ -114,6 +158,7 @@ function startGame(cards, currentItemStr, currentItems) {
         let playitem = new Audio();
         playitem.src = soundsCardsArr[soundsCardsArr.length - 3];
         playitem.autoplay = true;
+        currentSoundsArray.push('+');
         console.log(soundsCardsArr);
       },1000)
     }
@@ -134,6 +179,7 @@ function startGame(cards, currentItemStr, currentItems) {
         let playitem = new Audio();
         playitem.src = soundsCardsArr[soundsCardsArr.length - 5];
         playitem.autoplay = true;
+        currentSoundsArray.push('+');
         console.log(soundsCardsArr);
       },1000)
     }
@@ -153,6 +199,7 @@ function startGame(cards, currentItemStr, currentItems) {
         let playitem = new Audio();
         playitem.src = soundsCardsArr[soundsCardsArr.length - 7];
         playitem.autoplay = true;
+        currentSoundsArray.push('+');
         console.log(soundsCardsArr);
       },1000)
     }
@@ -172,6 +219,7 @@ function startGame(cards, currentItemStr, currentItems) {
         let playitem = new Audio();
         playitem.src = soundsCardsArr[soundsCardsArr.length - 4];
         playitem.autoplay = true;
+        currentSoundsArray.push('+');
         console.log(soundsCardsArr);
       },1000)
     }
@@ -191,6 +239,7 @@ function startGame(cards, currentItemStr, currentItems) {
         let playitem = new Audio();
         playitem.src = soundsCardsArr[soundsCardsArr.length - 6];
         playitem.autoplay = true;
+        currentSoundsArray.push('+');
         console.log(soundsCardsArr);
       },1000)
     }
@@ -210,6 +259,7 @@ function startGame(cards, currentItemStr, currentItems) {
         let playitem = new Audio();
         playitem.src = soundsCardsArr[soundsCardsArr.length - 8];
         playitem.autoplay = true;
+        currentSoundsArray.push('+');
         console.log(soundsCardsArr);
       },1000)
     }
@@ -229,6 +279,7 @@ function startGame(cards, currentItemStr, currentItems) {
         let playitem = new Audio();
         playitem.src = soundsCardsArr[soundsCardsArr.length - 2];
         playitem.autoplay = true;
+        currentSoundsArray.push('+');
         console.log(soundsCardsArr);
       },1000)
     }
@@ -308,6 +359,7 @@ function correct(tableOfscore){
   item.autoplay = true;
   tableOfscore.appendChild(scorePoint);
 }
+
 function uncorrect(tableOfscore){
   let scorePoint = document.createElement('div');
   scorePoint.classList.add('score-point-uncorrect');
@@ -317,6 +369,13 @@ function uncorrect(tableOfscore){
   tableOfscore.appendChild(scorePoint);
   countMistakes++;
   console.log(countMistakes);
+}
+
+function generateRepeatBtn() {
+  let playBtn = document.querySelector('.play-button');
+  playBtn.classList.add('hidden-item');
+  let repeatBtn = document.querySelector('.repeat-button');
+  repeatBtn.classList.remove('hidden-item')
 }
 
 export {startGame};
