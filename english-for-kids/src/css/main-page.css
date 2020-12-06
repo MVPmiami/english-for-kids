@@ -26,6 +26,20 @@ body{
   margin: 0;
 }
 
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 160px;
+  height: 60px;
+  background-image: url(../img/rs_school.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .wrapper {
   width: 100%;
   display: flex;
